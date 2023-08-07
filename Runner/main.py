@@ -1,5 +1,7 @@
-from pgzrun import go
+import pygame
 
 music.play('music.wav')
+
+
 
 go()
