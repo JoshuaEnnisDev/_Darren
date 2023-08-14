@@ -7,7 +7,7 @@ clock = pygame.time.Clock()
 
 # Game_screen
 WIDTH = 1024
-HEIGHT = 1024
+HEIGHT = 900
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Enter title here")
 
