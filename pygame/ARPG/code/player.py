@@ -15,7 +15,7 @@ class Player(pygame.sprite.Sprite):
 
     def input(self):
         keys = pygame.key.get_pressed()
-        
+
         self.direction = pygame.math.Vector2((
             keys[pygame.K_d] - keys[pygame.K_a],
             keys[pygame.K_s] - keys[pygame.K_w])
