@@ -15,8 +15,6 @@ class Level:
         self.visible_sprites = YSortCameraGroup()
         self.obstacle_sprites = pygame.sprite.Group()
         
-        
-
         self.create_map()
 
     def create_map(self):
