@@ -20,18 +20,25 @@ class Level:
 
     def create_map(self):
         tmxdata = load_pygame("../tmx/base-level.tmx")
-        
+
+        for gid, colliders in tmxdata.get_tile_colliders():
+            for obj in colliders:
+                pos = (obj.x, obj.y)
+
+                Tile(pos, pygame.Surface((64, 64)), [self.obstacle_sprites, self.sorted_sprites])
+            
         for layer in tmxdata.visible_layers:
             if layer.name in ["Floor", "Floor Details"]:
                 for x, y, surf in layer.tiles():
+                    
                     pos = (x * TILESIZE, y * TILESIZE)
                     Tile(pos, surf, [self.ground_sprites])
             elif layer.name == "collisions":
                 for x, y, surf in layer.tiles():
                     pos = (x * TILESIZE, y * TILESIZE)
                     Tile(pos, surf, [self.obstacle_sprites])
+
         for obj in tmxdata.objects:
-            print(obj.name)
             pos = (obj.x, obj.y) 
             Tile(pos, obj.image, [self.obstacle_sprites, self.sorted_sprites])
         self.player = Player((2000, 1430), [self.sorted_sprites], self.obstacle_sprites)
